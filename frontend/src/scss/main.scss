@@ -1,0 +1,23 @@
+@import "~bootstrap/scss/bootstrap";
+@import "register";
+@import "header";
+@import "profiles";
+@import "massanger";
+@import "search";
+@import "home";
+
+::-webkit-scrollbar{
+  width: 7px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba(15, 210, 224, 0.932);
+}
+
+
+::-webkit-scrollbar-track {
+  background: rgba(1, 39, 252, 0.678);
+}
+

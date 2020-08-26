@@ -1,0 +1,40 @@
+.home-body {
+  display: flex;
+
+  .request {
+    flex: 3;
+    overflow-y: scroll;
+    max-height: 600px;
+
+    .requests-list {
+      padding: 15px;
+      height: 60px;
+      text-align: center;
+
+      .request-name {
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .btn {
+        height: 30px;
+        font-size: 10px;
+      }
+    }
+
+    .requests-list::first-letter {
+      text-transform: uppercase;
+    }
+
+    .requests-list:hover {
+      cursor: pointer;
+      background-color: rgb(169, 192, 188);
+    }
+  }
+
+  .post {
+    flex: 7;
+  }
+}
+

@@ -1,0 +1,49 @@
+.main-body {
+    width: 900px;
+    height: 400px;
+    position: relative;
+    margin: 0 auto;
+
+    .back-img  {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .profile-img {
+      position: absolute;
+      left: 39.5%;
+      bottom: -20%;
+      border-radius: 50%;
+      border: 5px solid gray ;
+      width: 200px;
+      height: 200px;
+    }
+
+    .user-name {
+      margin-top: 140px;
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .user-name::first-letter {
+      text-transform: uppercase;
+    }
+
+    .profile-img:hover {
+      cursor: pointer;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+
+      button {
+        margin: 0 5px;
+      }
+    }
+}
+
+
+
