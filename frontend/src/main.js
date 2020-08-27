@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import './scss/main.scss'
 import titleMixin from './mixin/index'
+import i18n from './i18n'
 
 require('./plugins');
 Vue.config.productionTip = false
@@ -18,6 +19,7 @@ new Vue({
   router,
   store,
   components: { App },
+  i18n,
   template: '<App/>'
 })
 

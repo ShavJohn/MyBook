@@ -2,16 +2,21 @@
   <div>
     <b-navbar-nav>
       <search/>
-      <b-nav-item-dropdown text="Lang" right>
-        <b-dropdown-item href="#">AM</b-dropdown-item>
-        <b-dropdown-item href="#">EN</b-dropdown-item>
-      </b-nav-item-dropdown>
+      <select v-model="locale" @change="$i18n.locale = locale">
+        <option value="en" selected>{{ $t('en') }}</option>
+        <option value="am">{{ $t('am') }}</option>
+      </select>
+      <!--<b-nav-item-dropdown text="Lang" right v-model="locale" @change="$i18n.locale = locale">
+        <b-dropdown-item value="en" selected>EN</b-dropdown-item>
+        <b-dropdown-item value="am">AM</b-dropdown-item>
+      </b-nav-item-dropdown>-->
+      <b-button v-if="currentUser.role == 'admin'" @click="goToUsers">{{ $t('allUsers') }}</b-button>
       <b-nav-item-dropdown right>
         <template v-slot:button-content>
-          <em>My Page</em>
+          <em>{{ $t('mypage') }}</em>
         </template>
-        <b-dropdown-item @click="goToProfile(currentUser.id)">Profile</b-dropdown-item>
-        <b-dropdown-item @click="logout">Sign Out</b-dropdown-item>
+        <b-dropdown-item @click="goToProfile(currentUser.id)">{{ $t('profile') }}</b-dropdown-item>
+        <b-dropdown-item @click="logout">{{ $t('signout') }}</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>
   </div>
@@ -23,7 +28,7 @@
       components: {Search},
       data() {
         return {
-
+          locale: 'en'
         }
       },
       mounted() {
@@ -49,6 +54,16 @@
             }
 
           },
+          goToUsers(){
+            if(this.$route.name == 'Users' ){
+               return;
+            }
+            else {
+              this.$router.push({name: 'Users'}).then(() => {
+                this.$store.dispatch('allUsers')
+              })
+            }
+          }
       },
   }
 </script>

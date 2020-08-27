@@ -1,6 +1,6 @@
 <template>
     <div class="conversation">
-        <h1>{{ contact ? contact.name : 'Select a Contact'}}</h1>
+        <h1>{{ contact ? contact.name : $t('selectConv')}}</h1>
         <MessagesFeed :contact="contact" :messages="messages"/>
         <MessageComposer @send="sendText"/>
     </div>

@@ -41,6 +41,8 @@ Route::group([
     Route::get('/contacts', 'MessageController@get');
     Route::get('/conversation/{id}', 'MessageController@getMessagesFor');
     Route::post('/convrsation/send', 'MessageController@send');
+    Route::get('/allusers', 'UserController@getAllUsers');
+    Route::put('/statusChange/{id}', 'UserController@updateStatus');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

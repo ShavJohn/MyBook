@@ -6,6 +6,7 @@ import Profile from '../components/profile/Profile'
 import User from '../components/profile/User'
 import EditProfile from '../components/profile/EditProfile'
 import Messages from '../components/messages/ChatApp'
+import Users from '../components/profile/Users'
 
 Vue.use(Router)
 
@@ -18,6 +19,7 @@ const router =  new Router({
     {path: '/edite',name: 'EditProfile', component: EditProfile, meta: {auth: true, title: 'MyBook | My Edit Profile'}},
     {path: '/:user_id',name: 'User', component: User, meta: {auth: true, title: 'MyBook | User'}},
     {path: '/messages',name: 'Messages', component: Messages, meta: {auth: true, title: 'MyBook | Messages'}},
+    {path: '/users',name: 'Users', component: Users, meta: {auth: true, title: 'MyBook | Users'}},
   ]
 })
 

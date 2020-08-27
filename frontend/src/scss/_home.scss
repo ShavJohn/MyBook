@@ -3,35 +3,48 @@
 
   .request {
     flex: 3;
-    overflow-y: scroll;
-    max-height: 600px;
 
-    .requests-list {
+    .request-text {
       padding: 15px;
-      height: 60px;
       text-align: center;
-
-      .request-name {
-        text-align: center;
-        font-weight: bold;
-        font-size: 16px;
-      }
-
-      .btn {
-        height: 30px;
-        font-size: 10px;
-      }
+      font-weight: bold;
     }
 
-    .requests-list::first-letter {
-      text-transform: uppercase;
-    }
+    .request-body {
+      overflow-y: scroll;
+      height: 200px;
 
-    .requests-list:hover {
-      cursor: pointer;
-      background-color: rgb(169, 192, 188);
+      .requests-list {
+        padding: 10px;
+        height: 60px;
+        display: flex;
+
+        .request-name {
+          text-align: center;
+          font-weight: bold;
+          font-size: 16px;
+          padding: 5px;
+          flex: 4;
+        }
+
+        .request-name::first-letter {
+          text-transform: uppercase;
+        }
+
+        .btn {
+          flex: 7;
+          font-size: 10px;
+        }
+      }
+
+      .requests-list:hover {
+        cursor: pointer;
+        background-color: rgb(169, 192, 188);
+      }
     }
   }
+
+
 
   .post {
     flex: 7;

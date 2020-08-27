@@ -3,7 +3,7 @@
     <b-navbar toggleable="lg" type="dark" variant="info">
       <b-navbar-brand>
         <router-link class="text-decoration-none text-white" :to="{name: 'Home'}"><img src="../../../assets/logo.png" class="logo-img">
-          MyBook
+          {{ $t('mybook') }}
         </router-link>
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

@@ -2,7 +2,8 @@ import axios from 'axios'
 export default {
   state: {
       users: null,
-      user: null
+      user: null,
+      allUsersList: [],
   },
   getters: {
       usersList(state){
@@ -10,8 +11,10 @@ export default {
       },
       currentUser(state){
         return state.user
+      },
+      allUsersList(state){
+        return state.allUsersList
       }
-
   },
   mutations: {
     allUsers(state, data){
@@ -19,6 +22,9 @@ export default {
     },
     userinfo(state, data){
       state.user = data;
+    },
+    allUsersList(state, data){
+      state.allUsersList = data;
     }
   },
   actions: {
@@ -48,6 +54,25 @@ export default {
             resolve(res)
           }).catch(err => {
              reject(err)
+          })
+        })
+      },
+      allUsers(context, id){
+        return new Promise((resolve, reject) => {
+          axios.get('/user/allusers').then(res => {
+            context.commit('allUsersList', res.data);
+            resolve(res)
+          }).catch(err => {
+            reject(err)
+          })
+        })
+      },
+      changeStatus(context, data){
+        return new Promise((resolve, reject) => {
+          axios.put('/user/statusChange', data).then(res => {
+            resolve(res)
+          }).catch(err => {
+            reject(err)
           })
         })
       }

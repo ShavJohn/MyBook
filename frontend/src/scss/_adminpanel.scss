@@ -1,0 +1,21 @@
+.usersTable {
+  width: 100%;
+
+  th, td  {
+    padding: 20px;
+  }
+
+  .rows {
+    border-bottom: 1px solid rgb(182, 174, 174);
+  }
+
+  .name::first-letter {
+    text-transform: uppercase;
+  }
+
+  .rows-items:hover {
+    background-color: rgb(231, 221, 208);
+    cursor: pointer;
+  }
+
+}

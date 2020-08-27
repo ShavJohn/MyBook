@@ -15,6 +15,7 @@ class UserController extends Controller
             'name' => $request ->get('name'),
             'email' => $request ->get('email'),
             'role' => $request['role'],
+            'status' => 'active',
             'avatar' => 'https://via.placeholder.com/150',
             'password' => Hash::make($request -> get('password')),
         ]);
@@ -31,12 +32,28 @@ class UserController extends Controller
         return response()->json($user);
    }
 
+   public function getAllUsers()
+   {
+       $user = User::where('id', '!=', auth()->id())->get();
+
+       return response()->json($user);
+   }
+
    public function search(Request $request)
    {
         $search = $request->get('q');
         $user =  User::where('name', 'LIKE', "%{$search}%")->get();
 
         return response()->json($user);
+   }
+
+   public function updateStatus(Request $request, $id)
+   {
+       User::where('id', $id)->update(['status' => $request->status]);
+
+       return response()->json([
+           'message' => 'Status has been chnages'
+       ]);
    }
 
 }

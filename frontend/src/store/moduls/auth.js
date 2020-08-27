@@ -2,14 +2,14 @@ import axios from 'axios'
 export default {
   state: {
       islogin: null,
-      currentUser: null
+      itsMe: []
   },
   getters: {
       isLoggedIn(state){
          return state.islogin
       },
       itIsMe(state){
-        return state.currentUser
+        return state.itsMe
       }
   },
   mutations: {
@@ -17,7 +17,7 @@ export default {
       state.islogin = data
     },
     meChecker(state, data){
-      state.currentUser = data
+      state.itsMe = data
     }
   },
   actions: {
