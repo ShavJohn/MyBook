@@ -2,15 +2,11 @@
   <div>
     <b-navbar-nav>
       <search/>
-      <select v-model="locale" @change="$i18n.locale = locale">
-        <option value="en" selected>{{ $t('en') }}</option>
+      <select class="leng-select" v-model="locale" @change="$i18n.locale = locale">
+        <option value="en" >{{ $t('en') }}</option>
         <option value="am">{{ $t('am') }}</option>
       </select>
-      <!--<b-nav-item-dropdown text="Lang" right v-model="locale" @change="$i18n.locale = locale">
-        <b-dropdown-item value="en" selected>EN</b-dropdown-item>
-        <b-dropdown-item value="am">AM</b-dropdown-item>
-      </b-nav-item-dropdown>-->
-      <b-button v-if="currentUser.role == 'admin'" @click="goToUsers">{{ $t('allUsers') }}</b-button>
+      <b-button class="admin-btn" v-if="currentUser.role == 'admin'" @click="goToUsers">{{ $t('allUsers') }}</b-button>
       <b-nav-item-dropdown right>
         <template v-slot:button-content>
           <em>{{ $t('mypage') }}</em>

@@ -7,7 +7,7 @@
       <div class="buttons">
       <div v-if="user.id == auth.id">
           <b-button variant="outline-primary">Edite Profile</b-button>
-          <b-button  variant="outline-primary">Massages</b-button>
+          <b-button @click="goToMessages" variant="outline-primary">{{ $t('messages') }}</b-button>
         </div>
         <div v-else>
           <div v-if="freiendRequest[0]">
@@ -51,8 +51,8 @@
           })
         },
         goToMessages(){
-          this.$route.push({name: 'Messages'})
-        },
+          this.$router.push({name: 'Messages'})
+        }
       },
   }
 </script>
