@@ -1,7 +1,7 @@
 import axios from 'axios'
 export default {
   state: {
-    friendSuatus: null,
+    friendSuatus: [],
     friendRequestList: null
   },
   getters: {

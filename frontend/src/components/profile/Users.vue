@@ -12,7 +12,7 @@
         <td class="name">{{user.name}}</td>
         <td>{{user.email}}</td>
         <td>{{user.status}}</td>
-        <td><b-form-checkbox v-model="status" switch @change="statusChange(user.id)"></b-form-checkbox></td>
+        <td><b-form-checkbox :status="status" switch @change="statusChange(user.id)"></b-form-checkbox></td>
       </tr>
     </table>
   </div>
@@ -26,10 +26,11 @@
           return this.$store.getters.allUsersList
         }
       },
-      data() {
-        return {
-          status: true
-        }
+      props: {
+        status: {
+            type: String,
+            default: true ? 'acitve' : 'deactive'
+        },
       },
       mounted() {
         this.$store.dispatch('allUsers')
@@ -37,7 +38,6 @@
       methods: {
         statusChange(id){
 
-          console.log(this.$refs.status, id)
         }
       },
 
