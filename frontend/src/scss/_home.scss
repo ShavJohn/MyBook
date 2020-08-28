@@ -122,8 +122,8 @@
       text-align: center;
       position: absolute;
       z-index: 40;
-      top: 40%;
-      left: 30%;
+      top: 25%;
+      left: 15%;
       width: 150px;
       height: 50px;
       overflow: hidden;
@@ -135,7 +135,6 @@
       color: rgb(114, 97, 97);
       font-size: 20px;
       animation: text1 3s 1;
-      animation-delay: 1s;
   }
 
   .appeiring-text2 {
@@ -143,15 +142,15 @@
       text-align: center;
       position: absolute;
       z-index: 20;
-      top: 50%;
-      left: 30%;
+      top: 30%;
+      left: 15%;
       width: 150px;
       height: 50px;
       overflow: hidden;
   }
 
   .appeir-text2 {
-      font-size: 10px;
+      font-size: 15px;
       color: #e8e518;
       animation: text2 3s 1;
   }
