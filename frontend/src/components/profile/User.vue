@@ -6,13 +6,12 @@
       <div class="user-name">{{user.name}}</div>
       <div class="buttons">
       <div v-if="user.id == auth.id">
-          <b-button variant="outline-primary">Edite Profile</b-button>
           <b-button @click="goToMessages" variant="outline-primary">{{ $t('messages') }}</b-button>
         </div>
         <div v-else>
           <div v-if="freiendRequest[0]">
-            <b-button v-if="freiendRequest[0].friend_status == 'sent'" @click="goToMessages" variant="outline-primary">Sent</b-button>
-            <b-button v-else-if="freiendRequest[0].friend_status == 'accept'"  variant="outline-primary">Massages</b-button>
+            <b-button v-if="freiendRequest[0].friend_status == 'sent'" variant="outline-primary">Sent</b-button>
+            <b-button v-else-if="freiendRequest[0].friend_status == 'accept'" @click="goToMessages(user.id)" variant="outline-primary">Massages</b-button>
           </div>
           <div v-else>
             <b-button  variant="outline-primary" @click="addFriend(user.id)">Add Friend</b-button>
@@ -50,8 +49,10 @@
               this.$store.dispatch('statusCheker', id)
           })
         },
-        goToMessages(){
-          this.$router.push({name: 'Messages'})
+        goToMessages(id){
+          this.$router.push({name: 'Messages'}).then(() => {
+            this.$emit('selected', id)
+          })
         }
       },
   }

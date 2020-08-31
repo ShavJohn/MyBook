@@ -6,13 +6,13 @@
         <th>{{ $t('name') }}</th>
         <th>{{ $t('email') }}</th>
         <th>{{ $t('status') }}</th>
-        <th>{{ $t('action') }}</th>
+        <th>{{ $t('role') }}</th>
       </tr>
       <tr class="rows rows-items" v-for="user in usersList" :key="user.id">
         <td class="name">{{user.name}}</td>
         <td>{{user.email}}</td>
         <td>{{user.status}}</td>
-        <td><b-form-checkbox :status="status" switch @change="statusChange(user.id)"></b-form-checkbox></td>
+        <td>{{ user.role }}</td>
       </tr>
     </table>
   </div>

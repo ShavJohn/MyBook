@@ -10,10 +10,19 @@ use App\User;
 class MessageController extends Controller
 {
     public function get() {
-        $contacts = User::join('friendships', 'users.id', 'friendships.sender_id')
-            ->select('users.*', 'friendships.friend_status')
+        $contacts = User::join('friendships', function($join) {
+            $join->on('users.id', 'friendships.sender_id')
+            ->orOn('users.id', 'friendships.reciver_id');
+        } )
+            ->select('users.*', 'friendships.friend_status', 'friendships.reciver_id', 'friendships.sender_id')
             ->where('users.id', '!=', auth()->id())
-            ->where('friend_status', 'accept')->get();
+            ->where(function($q)
+            {
+                $q->where('friendships.sender_id', auth()->id())
+                ->orWhere('friendships.reciver_id', auth()->id());
+            })
+            ->where('friendships.friend_status', 'accept')
+            ->get();
 
         /*$unreadIds = Message::select(\DB::raw('`from` as sender_id, count(`from`) as messages_count'))
             ->where('to', auth()->id())

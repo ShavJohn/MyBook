@@ -5,7 +5,6 @@
       <b-img :src="currentUser.avatar" class="profile-img"></b-img>
       <div class="user-name">{{ currentUser.name }}</div>
       <div class="buttons">
-        <b-button @click="goToMEdites" variant="outline-primary">{{ $t('editeProfile') }}</b-button>
         <b-button @click="goToMessages" variant="outline-primary">{{ $t('messages') }}</b-button>
       </div>
     </div>

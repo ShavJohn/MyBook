@@ -7,7 +7,6 @@
   "search": "Search",
   "mybook": "MyBook",
   "request": "Friend Requests",
-  "editeProfile": "Edite Profile",
   "messages": "Messages",
   "accept": "Accept",
   "cancel": "Cancel",
@@ -16,5 +15,6 @@
   "name": "Name",
   "email": "Email",
   "action": "Acton",
-  "status": "Status"
+  "status": "Status",
+  "role": "Role"
 }
