@@ -1,6 +1,7 @@
 <template>
     <div class="composer">
-        <textarea v-model="message" @keydown.enter="send" placeholder="Message..."></textarea>
+        <div v-if="contacts == ''">No Contacts to choose yet</div>
+        <textarea v-else v-model="message" @keydown.enter="send" placeholder="Message..."></textarea>
     </div>
 </template>
 
@@ -10,6 +11,11 @@
             return {
                 message: ''
             }
+        },
+        computed: {
+          contacts(){
+            return this.$store.getters.getContact
+          },
         },
         methods: {
             send(e){

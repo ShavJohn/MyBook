@@ -2,7 +2,7 @@
     <div class="conversation">
         <h1>{{ contact ? contact.name : $t('selectConv')}}</h1>
         <MessagesFeed :contact="contact" :messages="messages"/>
-        <MessageComposer @send="sendText"/>
+        <MessageComposer v-if="contact" @send="sendText"/>
     </div>
 </template>
 
