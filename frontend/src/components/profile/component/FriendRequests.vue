@@ -30,6 +30,8 @@
       accept(id){
           this.$store.dispatch('accept', id).then(() => {
             this.$store.dispatch('friendRiquests')
+          }).finally(() => {
+            this.$store.dispatch('getFriendList')
           })
 
       },

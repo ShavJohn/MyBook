@@ -43,6 +43,7 @@ Route::group([
     Route::post('/convrsation/send', 'MessageController@send');
     Route::get('/allusers', 'UserController@getAllUsers');
     Route::put('/statusChange/{id}', 'UserController@updateStatus');
+    Route::get('/friends', 'FriendshipController@getFriendList');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

@@ -1,18 +1,21 @@
 <template>
   <div class="home-body">
     <requests class="request"/>
-    <post class="post"/>
+    <friendList class="friend-list"/>
   </div>
 </template>
 
 <script>
-  import Post from './component/Post';
+  import FriendList from './component/FriendList';
   import Requests from './component/FriendRequests'
   export default {
       components: {
-         Post,
+         FriendList,
          Requests
-      }
+      },
+      mounted() {
+        this.$store.dispatch('getFriendList')
+      },
   }
 </script>
 

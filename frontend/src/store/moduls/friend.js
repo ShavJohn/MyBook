@@ -2,7 +2,8 @@ import axios from 'axios'
 export default {
   state: {
     friendSuatus: [],
-    friendRequestList: null
+    friendRequestList: null,
+    friendsList: []
   },
   getters: {
     getStatus(state){
@@ -10,6 +11,9 @@ export default {
     },
     myRequest(state){
       return state.friendRequestList
+    },
+    friendsList(state){
+      return state.friendsList
     }
   },
   mutations: {
@@ -18,6 +22,9 @@ export default {
     },
     requests(state, data){
       state.friendRequestList = data
+    },
+    friendsList(state, data){
+      state.friendsList = data
     }
   },
   actions: {
@@ -26,6 +33,16 @@ export default {
         axios.post('/user/sendRequest/' + id).then((res) => {
           resolve(res)
         }).catch((err) => {
+          reject(err)
+        })
+      })
+    },
+    getFriendList(context, data){
+      return new Promise((resolve, reject) => {
+        axios.get('/user/friends').then(res => {
+          context.commit('friendsList', res.data)
+          resolve(res)
+        }).catch(err => {
           reject(err)
         })
       })

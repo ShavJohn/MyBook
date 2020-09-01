@@ -3,7 +3,7 @@
   "am": "AM",
   "mypage": "My Page",
   "profile": "Profile",
-  "signout": "Sign out",
+  "signout": "Logout",
   "search": "Search",
   "mybook": "MyBook",
   "request": "Friend Requests",
@@ -16,5 +16,6 @@
   "email": "Email",
   "action": "Acton",
   "status": "Status",
-  "role": "Role"
+  "role": "Role",
+  "friends": "Friends list"
 }

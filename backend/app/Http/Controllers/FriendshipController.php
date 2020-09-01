@@ -22,6 +22,24 @@ class FriendshipController extends Controller
         ]);
     }
 
+    public function getFriendList(){
+        $friends = User::join('friendships', function($join) {
+            $join->on('users.id', 'friendships.sender_id')
+            ->orOn('users.id', 'friendships.reciver_id');
+        } )
+            ->select('users.*', 'friendships.friend_status', 'friendships.reciver_id', 'friendships.sender_id')
+            ->where('users.id', '!=', auth()->id())
+            ->where(function($q)
+            {
+                $q->where('friendships.sender_id', auth()->id())
+                ->orWhere('friendships.reciver_id', auth()->id());
+            })
+            ->where('friendships.friend_status', 'accept')
+            ->get();
+
+        return response()->json($friends);
+    }
+
     public function statusChecker($id){
         //$friendStatus = Friendship::where('reciver_id',  $id)->where('sender_id', auth()->id())->get();
 
