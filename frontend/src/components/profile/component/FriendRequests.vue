@@ -3,7 +3,7 @@
     <div class="request-text">
         {{ $t('request') }}
     </div>
-    <div v-if="friendRequests == ''">No friend requests</div>
+    <div class="fr-worning" v-if="friendRequests == ''">{{ $t('fr-worning') }}</div>
     <div v-else class="request-body">
        <div class="requests-list" v-for="request in friendRequests" :key="request.id">
         <span class="request-name">{{request.name}}</span>

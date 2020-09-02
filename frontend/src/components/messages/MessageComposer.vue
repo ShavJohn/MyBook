@@ -1,7 +1,6 @@
 <template>
     <div class="composer">
-        <div v-if="contacts == ''">No Contacts to choose yet</div>
-        <textarea v-else v-model="message" @keydown.enter="send" placeholder="Message..."></textarea>
+        <textarea v-model="message" @keydown.enter="send" placeholder="Message..."></textarea>
     </div>
 </template>
 

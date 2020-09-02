@@ -3,6 +3,7 @@
         <h1>{{ contact ? contact.name : $t('selectConv')}}</h1>
         <MessagesFeed :contact="contact" :messages="messages"/>
         <MessageComposer v-if="contact" @send="sendText"/>
+        <div class="contact-worning" v-else>{{ $t('contact-worning') }}</div>
     </div>
 </template>
 

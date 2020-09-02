@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="friends-list-header">{{ $t('friends') }}</div>
-    <div v-if="friends == ''">You have no friends yet</div>
+    <div class="fl-worning" v-if="friends == ''">{{ $t('fl-worning') }}</div>
     <div v-else class="friends-list-body" v-for="friend in friends" :key="friend.id">
-      <div>{{ friend.name }}</div>
+      <div class="name">{{ friend.name }}</div>
       <div>{{ friend.email }}</div>
       <b-button @click="goToMessages(friend.id)">Message</b-button>
     </div>

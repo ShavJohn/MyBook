@@ -17,5 +17,9 @@
   "action": "Acton",
   "status": "Status",
   "role": "Role",
-  "friends": "Friends list"
+  "friends": "Friends list",
+  "fr-worning": "No friend requests",
+  "fl-worning": "You have no friends yet",
+  "contact-worning": "No Contact Selected yet",
+  "cl-worning": "No Contact yet"
 }

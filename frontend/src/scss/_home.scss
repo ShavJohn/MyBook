@@ -10,6 +10,12 @@
       font-weight: bold;
     }
 
+    .fr-worning {
+      margin-top: 20%;
+      text-align: center;
+      color: #64645aa8;
+    }
+
     .request-body {
       overflow-y: scroll;
       height: 200px;
@@ -53,6 +59,13 @@
       padding: 15px;
       text-align: center;
       font-weight: bold;
+      size: 20px;
+    }
+
+    .fl-worning {
+      margin-top: 20%;
+      text-align: center;
+      color: #64645aa8;
     }
 
     .friends-list-body {
@@ -62,6 +75,14 @@
 
       div {
         margin: 0 10px;
+      }
+
+      .name {
+        font-weight: bold;
+      }
+
+      .name::first-letter {
+        text-transform: uppercase;
       }
     }
   }

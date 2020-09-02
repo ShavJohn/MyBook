@@ -1,6 +1,7 @@
 <template>
     <div class="contacts-list">
-        <ul>
+        <div class="cl-worning" v-if="contacts == ''">{{ $t('cl-worning') }}</div>
+        <ul v-else>
             <li v-for="(contact, index) in contacts" :key="contact.id" @click="selectContact(index, contact)" :class="{'selected' : index == selected}">
                 <div class="avatar">
                     <img :src="contact.avatar">
